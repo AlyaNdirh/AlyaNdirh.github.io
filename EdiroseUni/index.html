@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="/css/all.min.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>HOME</title>
+  <style type="text/css">
+/*------ SETTINGS STYLE BODY ------*/
+    body,html{
+      position: static;
+      margin: 0;
+      padding: 0;
+      background-color: #DCDCDC;
+      font-family: "Times New Roman", Times, serif;
+    }
+
+/*------ SETTING STYLE HEADER ------*/
+    .header{
+      min-height: 80vh;
+      width: 100%;
+      background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(images/campus.jpg);
+      background-position: center;
+      background-size: 100%;
+      position: relative;
+      }
+
+/*------ SETTING STYLE MENU ------*/
+    .menu ul{
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background-color: #333333;
+    }
+    .menu li{
+      float: right;
+    }
+    .menu li a{
+      display: block;
+      color: white;
+      text-align: center;
+      padding: 16px;
+      text-decoration: none;
+    }
+    .menu li a:hover{
+      background-color: #111111;
+    }
+
+/*------ SETTINGS STYLE TEXT BOX ------*/
+    .text-box{
+      width: 90%;
+      color: white;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      text-align: center;
+    }
+    .text-box h1{
+      font-size: 52px;
+    }
+    .text-box p{
+      margin: 10px 0 40px;
+      font-size: 14px;
+      color: white;
+    }
+    .hero-btn{
+      display: inline-block;
+      text-decoration: none;
+      color: white;
+      border: 1px solid white;
+      padding: 12px 34px;
+      font-size: 13px;
+      background: transparent;
+      position: relative;
+      cursor: pointer;
+    }
+    .hero-btn:hover{
+      border: 1px solid red;
+      background: red;
+      transition: 0.5s;
+    }
+
+/*------ SETTINGS STYLE VISION AND MISSION ------*/
+    .about h1{
+      border: 10PX double black;
+      border-radius: 0;
+      text-align: center;
+      padding: 10px;
+      margin: 30px;
+      background: grey;
+      color: white;
+    }
+    .about p{
+      text-align: center;
+      color: black;
+      font-size: 14;
+    }
+    .about ul li{
+      padding: 10px;
+    }
+
+/*------ SETTINGS STYLE CAMPUS SECTION ------*/
+    .row{
+      margin-top: 5%;
+      display: flex;
+      justify-content: space-between;
+    }
+    .layer:hover h3{
+      bottom: 49%;
+      opacity: 1;
+    }
+    .layer h3{
+      text-align: center;
+      margin: auto;
+    }
+    .campus{
+      width: 80%;
+      margin: auto;
+      text-align: center;
+      padding-top: 50px;
+    }
+    .campus h1{
+      padding: 10px;
+      margin: 0;
+      font-size: 30px;
+    }
+    .campus-col{
+      flex-basis: 32%;
+      border-radius: 30px;
+      position: relative;
+      overflow: hidden;
+    }
+    .campus-col img{
+      width: 100%;
+      display: block;
+    }
+
+/*------ SETTINGS STYLE TESTIMONIALS SECTION ------*/
+    .testimonials{
+      width: 80%;
+      margin: auto;
+      padding-top: 100px;
+      text-align: center;
+    }
+    .testimonials h1{
+      padding: 10px;
+      margin: 0;
+      font-size: 30px;
+    }
+    .testimonials-col{
+      margin-top: 5%;
+      flex-basis: 44%;
+      border-radius: 10px;
+      margin-bottom: 5%;
+      text-align: left;
+      background: grey;
+      padding: 25px;
+      cursor: pointer;
+      display: flex;
+    }
+    .testimonials-col img{
+      height: 60px;
+      margin-left: 5px;
+      margin-right: 30px;
+      border-radius: 50%;
+    }
+    .testimonials-col p{
+      color: white;
+      padding: 0;
+      margin: auto;
+      line-height: 2.0;
+    }
+    .testimonials-col h3{
+      margin-top: 15px;
+      text-align: left;
+    }
+    .layer{
+      background: transparent;
+      height: 100%;
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      transition: 0.5s;
+    }
+    .layer:hover{
+      background: rgba(226,0,0,0.7);
+    }
+    .layer h3{
+      width: 100%;
+      font-weight: 500;
+      color: white;
+      font-size: 26px;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      position: absolute;
+      opacity: 0;
+      transition: 0.5s;
+    }
+
+/*------ SETTINGS STYLE CTA SECTION ------*/
+    .cta{
+      margin: 100px auto;
+      width: 80%;
+      background-image: linear-gradient(rgba(0,0,0,0.7),rgba(0,0,0,0.7)),url(images/png2.png);
+      background-position: center;
+      background-size: cover;
+      border-radius: 10px;
+      text-align: center;
+      padding: 100px 0;   
+    }
+    /*.cta h1{
+      color: white;
+      margin-bottom: 40px;
+      padding: 0;
+    }*/
+    .cta a{
+      position: relative;
+      right: 25px;
+      top: 50px;
+      margin-bottom: 40px;
+    }
+
+/*------ SETTINGS STYLE TEXT EFFECT JS ------*/
+    .ml15 {
+      font-weight: 600;
+      font-size: 30px;
+      text-transform: uppercase;
+      letter-spacing: 0.5em;
+    }
+    .ml15 .word {
+      display: inline-block;
+      line-height: 1em;
+    }
+    button{
+      /*Change the width as much as you like, but make sure 
+      margin-left and margin-right + width = 100%*/
+      width:50%;
+      margin-left:25%;
+      margin-right:25%;
+    }
+
+/*------ SETTINGS STYLE DATE AND TIME ------*/
+    .datetime{
+      color: white;
+      background: grey;
+      width: 97.6%;
+      padding: 15px;
+    }
+    .date{
+      font-size: 12px;
+      font-weight: 600;
+      text-align: center;
+      letter-spacing: 3px;
+    }
+    .time{
+      font-size: 20px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .time span:not(:last-child){
+      position: relative;
+      margin: 0 6px;
+      font-weight: 600;
+      text-align: center;
+      letter-spacing: 3px;
+    }
+    .time span:last-child{
+      background: black;
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      margin-top: 10px;
+      padding: 0 5px;
+      border-radius: 3px;
+    }
+
+/*------ SETTINGS STYLE TEXT EFFECT JS ------*/
+    .ml16 {
+      color: #402d2d;
+      padding: 40px 0;
+      font-weight: 800;
+      font-size: 2em;
+      text-transform: uppercase;
+      letter-spacing: 0.5em;
+      overflow: hidden;
+    }
+    .ml16 .letter {
+      display: inline-block;
+      line-height: 1em;
+    }
+
+/*------ SETTINGS STYLE TEXT EFFECT JS ------*/
+    .ml15 {
+      font-weight: 600;
+      font-size: 20px;
+      text-transform: uppercase;
+      color: white;
+    }
+    .ml15 .word {
+      display: inline-block;
+      line-height: 1em;
+      padding: 10px;
+    }
+
+/*------ SETTINGS STYLE TEXT EFFECT JS ------*/
+    .ml161 {
+      color: #402d2d;
+      padding: 40px 0;
+      font-weight: 800;
+      font-size: 2em;
+      text-transform: uppercase;
+      letter-spacing: 0.5em;
+      overflow: hidden;
+    }
+    .ml161 .letter {
+      display: inline-block;
+      line-height: 1em;
+    }
+
+</style>
+</head>
+<!------------ SECTION 1 DATE AND TIME ------------>
+<body onload="initClock()">
+  <div class="datetime">
+    <div class="date">
+      <span id="dayname">Day</span>,
+      <span id="month">Month</span>
+      <span id="daynum">00</span>,
+      <span id="year">Year</span>
+    </div>
+    <div class="time">
+      <span id="hour">00</span>:
+      <span id="minutes">00</span>:
+      <span id="seconds">00</span>
+      <span id="period">AM</span>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    function updateClock(){
+      var now = new Date();
+      var dname = now.getDay(),
+          mo = now.getMonth(),
+          dnum = now.getDate(),
+          yr = now.getFullYear(),
+          hou = now.getHours(),
+          min = now.getMinutes(), 
+          sec = now.getSeconds(),
+          pe = "AM";
+
+          if(hou == 0){
+            hou = 12;
+          } 
+          if(hou > 12){
+            hou = hou - 12;
+            pe = "PM";
+          }
+
+          Number.prototype.pad = function(digits){
+            for(var n = this.toString(); n.length < digits; n = 0 + n);
+            return n;
+          }
+
+          var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+          var week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+          var ids = ["dayname", "month", "daynum", "year", "hour", "minutes", "seconds", "period"];
+          var values = [week[dname], months[mo], dnum.pad(2), yr, hou.pad(2), min.pad(2), sec.pad(2), pe];
+          for(var i = 0; i < ids.length; i++)
+          document.getElementById(ids[i]).firstChild.nodeValue = values[i];
+    }
+
+    function initClock(){
+      updateClock();
+      window.setInterval("updateClock()", 1);
+    }
+  </script>
+<!------------ SECTION 1 HEADER ------------>
+  <section class="header">
+<!------------ SECTION 1 MENU ------------>
+  <div class="menu">
+    <ul>
+
+      <li><a href="Enquiry.html">Enquiry</a></li>
+      <li><a href="News.html">News</a></li>
+      <li><a href="Facilities.html">Facilities</a></li>
+      <li><a href="Programmes.html">Programmes</a></li>
+      <li><a href="About.html">About</a></li>
+      <li><a href="Home.html">Home</a></li>
+    </ul>
+  </div>
+<!------------ SECTION 1 TEXT BOX ------------> 
+  <div class="text-box">
+  <h1 class="ml3">UNIVERSITY OF EDIROSE</h1>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<!------------ SECTION 1 TEXT EFFECT JS ------------>
+  <script type="text/javascript">
+    // Wrap every letter in a span
+  var textWrapper = document.querySelector('.ml3');
+  textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+  anime.timeline({loop: true})
+    .add({
+      targets: '.ml3 .letter',
+      opacity: [0,1],
+      easing: "easeInOutQuad",
+      duration: 2000,
+      delay: (el, i) => 150 * (i+1)
+    }).add({
+      targets: '.ml3',
+      opacity: 0,
+      duration: 1000,
+      easing: "easeOutExpo",
+      delay: 1000
+    });
+  </script>
+  <p>EDIROSE at a glance is the leading entrepreneurial technical university in Malaysia based in the heart of Malaysia’s capital and commerce area. The university aims to provide our graduates with the knowledge, skills and attitude required to contribute towards society in an effort to play major roles in a globalised and knowledge-based economy.</p>
+  <a href="About.html" class="hero-btn">VISIT US TO KNOW MORE</a>
+</div>   
+  </section>
+<!------------ SECTION 2 VISION AND MISSION ------------>
+<section class="under-header">
+  <div class="about">
+  <h1>VISION</h1>
+  <p>To be an intellectually resilient praxis university renowned for its leadership in academic pursuits and engagement with the industry and the community.
+</p>
+  <h1>MISSION</h1>
+  <ul>
+    <li>To promote transformative education that empowers students from all walks of life to be successful individuals with integrity, professionalism and a desire to contribute to society.</li>
+    <li>To optimise relationships between industry and academia through the provision of education and unparalleled workplace exposure via praxis centres.</li>
+    <li>To spearhead innovation in teaching and learning excellence through unique delivery systems.</li>
+    <li>To foster a sustainable culture of research, value innovation and practice, in partnership with industries and society.</li>
+    <li>To operate ethically at the highest standards of efficiency, while instilling values of diversity and inclusiveness, to sustain the vision for future generations.</li>
+  </ul>
+</div>
+</section>
+<!------------ SECTION 3 CAMPUS ------------>
+<section class="campus">
+  <h1 class="ml16">Our Global Campus</h1>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>  
+  <hr>
+<!------------ SECTION 3 TEXT EFFECT JS ------------>
+  <script type="text/javascript">
+  // Wrap every letter in a span
+  var textWrapper = document.querySelector('.ml16');
+  textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+
+  anime.timeline({loop: true})
+    .add({
+      targets: '.ml16 .letter',
+      translateY: [-100,0],
+      easing: "easeOutExpo",
+      duration: 1400,
+      delay: (el, i) => 30 * i
+    }).add({
+      targets: '.ml16',
+      opacity: 0,
+      duration: 1000,
+      easing: "easeOutExpo",
+      delay: 3000
+    });
+  </script>
+  <div class="row">
+      <div class="campus-col">
+        <img src="images/campus 1.jpg">
+        <div class="layer">
+          <h3>LONDON</h3>
+        </div>
+      </div>
+      <div class="campus-col">
+        <img src="images/photo-1621640786029-220e9ff8dd09.jpg">
+        <div class="layer">
+          <h3>NEW YORK</h3>
+        </div>
+      </div>
+      <div class="campus-col">
+        <img src="images/finding-a-college-you-can-afford.jpg">
+        <div class="layer">
+          <h3>WASHINGTON</h3>
+        </div>
+      </div>
+  </div>
+</section>
+<!------------ SECTION 4 TESTIMONIALS ------------>
+<section class="testimonials">
+<h1 class="ml161">What Our Student Says</h1>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>  
+<hr>
+<!------------ SECTION 4 TEXT EFFECT JS ------------>
+<script type="text/javascript">
+// Wrap every letter in a span
+var textWrapper = document.querySelector('.ml161');
+textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+anime.timeline({loop: true})
+  .add({
+    targets: '.ml161 .letter',
+    translateY: [-100,0],
+    easing: "easeOutExpo",
+    duration: 1400,
+    delay: (el, i) => 30 * i
+  }).add({
+    targets: '.ml161',
+    opacity: 0,
+    duration: 1000,
+    easing: "easeOutExpo",
+    delay: 3000
+  });
+</script>
+    <div class="testimonials-col">
+      <img src="images/florence_ashley.jpg">
+      <div>
+        <p>EDIROSE is one of the best place if you want to step inside the music industry. The best part is the experienced instructors and the professional studios make the learning more interesting and cheerful. The practical knowledge provided by the institution is probably the best and the studios are way more professional than any other competitors. The only thing that needs improvement is the IMacs inside the practice studios should be replaced as they are pretty slow and slow down the creative process too. Also EDIROSE should tie up with an accommodation agency so it gets cheap and easy for students to get an accommodation while they study there.</p>
+        <h3>Christine Berkley</h3>
+      </div>
+    </div>
+    <div class="testimonials-col">
+      <img src="images/istockphoto-1221755378-612x612.jpg">
+      <div>
+        <p>EDIROSE is in such a lovely area and the campus is absolutely beautiful. It has pretty much everything you could need on campus, and has good transport links for buses and coaches, and it's one bus ride away from Norwich train station. I haven't had much experience with the student support services but I've heard from friends that they're pretty good. The uni was pretty good with COVID precautions, with vaccinations being available on campus as well as free testing. At times it's apparent that it is a company and it could do with remembering that its main priority should be its students and staff over making money for the VC, but overall I'm happy here and I wouldn't change my decision.</p>
+        <h3>Eleanor Audrey</h3>
+      </div>
+</section>
+ <!------------ SECTION 5 CTA ------------>
+<section class="cta">
+  <h1 class="ml15">
+    <span class="word">ENROLL FOR OUR VARIOUS ONLINE COURSES<br></span>
+    <span class="word">ANYWHERE FROM THE WORLD</span>
+  </h1>
+<!------------ SECTION 5 TEXT EFFECT JS ------------>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+  <script type="text/javascript">
+  anime.timeline({loop: true})
+    .add({
+      targets: '.ml15 .word',
+      scale: [14,1],
+      opacity: [0,1],
+      easing: "easeOutCirc",
+      duration: 2000,
+      delay: (el, i) => 800 * i
+    }).add({
+      targets: '.ml15',
+      opacity: 0,
+      duration: 2000,
+      easing: "easeOutExpo",
+      delay: 500
+    });
+  </script>
+  <a href="Contact Us.html" class="hero-btn">CONTACT US</a>
+</section>
