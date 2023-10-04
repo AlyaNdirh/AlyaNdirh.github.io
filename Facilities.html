@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>FACILITIES</title>
+	<style type="text/css">
+/*------ SETTINGS STYLE BODY ------*/
+      body, html {
+        background-color: #DCDCDC;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      } 
+
+/*------ SETTING STYLE MENU ------*/
+	    .menu ul{
+	      list-style-type: none;
+	      margin: 0;
+	      padding: 0;
+	      overflow: hidden;
+	      background-color: #333333;
+	    }
+	    .menu li{
+	      float: right;
+	    }
+	    .menu li a{
+	      display: block;
+	      color: white;
+	      text-align: center;
+	      padding: 16px;
+	      text-decoration: none;
+	    }
+	    .menu li a:hover{
+	      background-color: #111111;
+	    }
+
+/*------ SETTINGS STYLE BACKGROUND ------*/
+			.bg {
+			  background-image: url("images/11_14_Adult_College_Academic-Success-CollegeSlideshow_11_college-study-group_ts_168729266.webp");
+				height: 50%;
+				background-position: center;
+				background-repeat: no-repeat;
+				background-size: cover;
+			}
+
+/*------ SETTINGS STYLE TEXT BOX ------*/
+		  .text-box{
+	      width: 100%;
+	      color: white;
+        position: absolute;
+        bottom: 46.5%;
+        margin: auto;
+        padding: 0;	 
+	      text-align: center;
+	    }
+	    .text-box h1{
+	      font-size: 50px;
+	    }
+
+/*------ SETTINGS STYLE FACILITIES SECTION ------*/
+      .head h1{
+        font-size: 40px;
+        color: white;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        text-align: center;
+        letter-spacing: 30px;
+        background-color: #922B21 ;
+        font-weight: 2000;
+      }
+  		.row{
+	      margin-top: 3%;
+	      display: flex;
+	      justify-content: space-between;
+  	  }
+  		.facilities{
+  	    width: 100%;
+  	    margin: auto;
+  	    text-align: center;
+  	  }
+  	  h1{
+  	    font-size: 36px;
+  	    font-weight: 600;
+  	  }
+  	  .facilities-col{
+  	    flex-basis: 31%;
+  	    border-radius: 10px;
+  	    text-align: left;
+  	    margin: 50px;
+  	    margin-bottom: 0;
+  	  }
+  	  .facilities-col img{
+  	    width: 300px;
+  	    height: 200px;
+  	    border-radius: 10px;
+  	  }
+  	  .facilities-col p{
+  	    padding: 0;
+  	  }
+  	  .facilities-col h3{
+  	    margin-top: 16px;
+  	    margin-bottom: 15px;
+  	    text-align: left;
+  	  } 
+
+/*------SETTINGS STYLE DATE AND TIME------*/
+      .datetime{
+        color: white;
+        background: grey;
+        width: 100s%;
+        padding: 15px;
+      }
+      .date{
+        font-size: 12px;
+        font-weight: 600;
+        text-align: center;
+        letter-spacing: 3px;
+      }
+      .time{
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .time span:not(:last-child){
+        position: relative;
+        margin: 0 6px;
+        font-weight: 600;
+        text-align: center;
+        letter-spacing: 3px;
+      }
+      .time span:last-child{
+        background: black;
+        font-size: 10px;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-top: 10px;
+        padding: 0 5px;
+        border-radius: 3px;
+      }
+
+/*------ SETTINGS STYLE TEXT EFFECT JS ------*/    
+      .ml2{
+        font-weight: 900;
+        font-size: 3.5em;
+      }
+      .ml2 .letter {
+        display: inline-block;
+        line-height: 1em;
+      }
+
+	</style>
+</head>
+<!------------ SECTION 1 DATE AND TIME ------------>
+<body onload="initClock()">
+  <div class="datetime">
+    <div class="date">
+      <span id="dayname">Day</span>,
+      <span id="month">Month</span>
+      <span id="daynum">00</span>,
+      <span id="year">Year</span>
+    </div>
+    <div class="time">
+      <span id="hour">00</span>:
+      <span id="minutes">00</span>:
+      <span id="seconds">00</span>
+      <span id="period">AM</span>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    function updateClock(){
+      var now = new Date();
+      var dname = now.getDay(),
+          mo = now.getMonth(),
+          dnum = now.getDate(),
+          yr = now.getFullYear(),
+          hou = now.getHours(),
+          min = now.getMinutes(), 
+          sec = now.getSeconds(),
+          pe = "AM";
+
+          if(hou == 0){
+            hou = 12;
+          } 
+          if(hou > 12){
+            hou = hou - 12;
+            pe = "PM";
+          }
+
+          Number.prototype.pad = function(digits){
+            for(var n = this.toString(); n.length < digits; n = 0 + n);
+            return n;
+          }
+
+          var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+          var week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+          var ids = ["dayname", "month", "daynum", "year", "hour", "minutes", "seconds", "period"];
+          var values = [week[dname], months[mo], dnum.pad(2), yr, hou.pad(2), min.pad(2), sec.pad(2), pe];
+          for(var i = 0; i < ids.length; i++)
+          document.getElementById(ids[i]).firstChild.nodeValue = values[i];
+    }
+
+    function initClock(){
+      updateClock();
+      window.setInterval("updateClock()", 1);
+    }
+  </script>
+<!------------ SECTION 1 MENU ------------>
+	<div class="menu">
+		<ul>
+
+		  <li><a href="Enquiry.html">Enquiry</a></li>
+		  <li><a href="News.html">News</a></li>
+		  <li><a href="Facilities.html">Facilities</a></li>
+		  <li><a href="Programmes.html">Programmes</a></li>
+		  <li><a href="About.html">About</a></li>
+		  <li><a href="Home.html">Home</a></li>
+		</ul>
+	</div>
+<!------------ SECTION 1 BACKGROUND ------------>
+<div class="bg"></div>
+<!------------ SECTION 1 TEXT BOX ------------>
+<div class="text-box">
+	<h1>FACILITIES</h1>
+</div>
+<!------------ SECTION 2 FACILITIES ------------>
+<section class="facilities">
+  <div class="head">
+    <h1 class="ml2">CAMPUS SERVICES</h1> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<!------------ SECTION 2 TEXT EFFECT JS ------------>
+    <script type="text/javascript">
+    // Wrap every letter in a span
+    var textWrapper = document.querySelector('.ml2');
+    textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+    anime.timeline({loop: true})
+      .add({
+        targets: '.ml2 .letter',
+        scale: [4,1],
+        opacity: [0,1],
+        translateZ: 0,
+        easing: "easeOutExpo",
+        duration: 3500,
+        delay: (el, i) => 100*i
+      })
+    </script> 
+
+  </div>
+  <div class="row">
+    <div class="facilities-col">
+      <img src="images/RS4967_78781313-hig.jpg">
+      <h3>UNIGYM</h3>
+      <hr>
+      <p>We don't believe in all work and no play. That's why we have an on-campus gym. Free weights, cardiovascular machines, barbells and weight machines are among the many equipment you can find here for both cardiovascular and strength training.</p>
+    </div>
+
+    <div class="facilities-col">
+      <img src="images/08_EM2N_WIN4_Sports_Centre_©Roger_Frei_3000px_web.jpg">
+      <h3>SPORT CENTRE</h3>
+      <hr>
+      <p>Ready to move and get a game going? Multi-purpose courts are available at the Sports and Recreation Centre for various kinds of sports which include futsal, netball, volleyball, basketball, cricket nets, tennis and dodgeball.</p>
+    </div>
+
+    <div class="facilities-col">
+      <img src="images/02n_Crescendo_International_College_Desa_Cemerlang_On_Campus_Sick_Bay.png">
+      <h3>SICKBAY</h3>
+      <hr>
+      <p>For students who are feeling unwell or injured, there is also an allocated rest area for them on campus.</p>
+    </div>
+  </div>
+
+    <div class="row">
+    <div class="facilities-col">
+      <img src="images/study-maughan.jpg">
+      <h3>STUDY SPACES</h3>
+      <hr>
+      <p>For the ease and convenience of students, a number of study spaces are available all around the campus. Be it for discussion or silent studying, there are spaces designated for these specific purposes. Some of these spaces can be accessed for up to 24 hours during examination period.</p>
+    </div>
+
+    <div class="facilities-col">
+      <img src="images/verstas-architects_aalto-university-new-campus-block_02.jpg">
+      <h3>COMMERCIAL BLOCK</h3>
+      <hr>
+      <p>Features a unique blend of retail and F&B outlets. Perfect for work and play.</p>
+    </div>
+
+    <div class="facilities-col">
+      <img src="images/iStock-1011940756.avif">
+      <h3>PLACES OF WORSHIP</h3>
+      <hr>
+      <p>Being located within a multiracial community definitely has its benefits. You'll be able to find many different places of worship located nearby the campus. To view the full list, click on the image.</p>
+    </div>
+  </div>
+</section>
+<br>
+<br>
+</body>
+</html>

@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>PROGRAMMES</title>
+		<style type="text/css">
+/*------ SETTINGS STYLE BODY ------*/
+      body, html {
+        background-color: #DCDCDC;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+      }
+
+/*------ SETTING STYLE MENU ------*/
+	    .menu ul{
+	      list-style-type: none;
+	      margin: 0;
+	      padding: 0;
+	      overflow: hidden;
+	      background-color: #333333;
+	    }
+	    .menu li{
+	      float: right;
+	    }
+	    .menu li a{
+	      display: block;
+	      color: white;
+	      text-align: center;
+	      padding: 16px;
+	      text-decoration: none;
+	    }
+	    .menu li a:hover{
+	      background-color: #111111;
+	    }
+
+/*------ SETTINGS STYLE BACKGROUND ------*/
+  		.bg {
+  		  background-image: url("images/The-high-cost-of-graduation-ceremonies.jpg");
+  			height: 50%;
+  			background-position: center;
+  			background-repeat: no-repeat;
+  			background-size: cover;
+  		}
+
+/*------ SETTINGS STYLE TEXT BOX ------*/
+      .text-box{
+        width: 100%;
+        color: white;
+        position: absolute;
+        bottom: 46.5%;
+        margin: auto;
+        padding: 0;  
+        text-align: center;
+      }
+      .text-box h1{
+        font-size: 50px;
+      }
+
+/*------ SETTINGS STYLE PROGRAMME SECTION ------*/
+      .head h1{
+        font-size: 40px;
+        color: white;
+        margin-top: 0;
+        margin-bottom: 0;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        text-align: center;
+        letter-spacing: 30px;
+        background-color: #922B21 ;
+        font-weight: 2000;
+      }
+      .course{
+        width: 100%;
+        text-align: center;
+      }
+      h1{
+        font-size: 36px;
+        font-weight: 600;
+      }
+      .row{
+        margin-top: 3%;
+        display: flex;
+        justify-content: space-between;
+      }
+      .course-col{
+        flex-basis: 31%;
+        background: #15317E;
+        border-radius: 10px;
+        padding: 20px 12px;
+        box-sizing: border-box;
+        transition: 0.5s;
+        margin: 40px;
+      }
+      h3{
+      	color: white;
+        text-align: center;
+        font-weight: 600;
+        margin: 10px 0;
+      }
+      .course-col:hover{
+        box-shadow: 0 0 20px 0px rgba(0,0,0,0.2);
+      }
+      .hero-btn{
+        display: inline-block;
+        text-decoration: none;
+        color: white;
+        border: 1px solid white;
+        padding: 12px 34px;
+        font-size: 13px;
+        background: transparent;
+        position: relative;
+        cursor: pointer;
+      }
+      .hero-btn:hover{
+        border: 1px solid red;
+        background: red;
+        transition: 0.5s;
+      }
+
+/*------ SETTINGS STYLE DATE AND TIME ------*/
+      .datetime{
+        color: white;
+        background: grey;
+        width: 100s%;
+        padding: 15px;
+      }
+      .date{
+        font-size: 12px;
+        font-weight: 600;
+        text-align: center;
+        letter-spacing: 3px;
+      }
+      .time{
+        font-size: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .time span:not(:last-child){
+        position: relative;
+        margin: 0 6px;
+        font-weight: 600;
+        text-align: center;
+        letter-spacing: 3px;
+      }
+      .time span:last-child{
+        background: black;
+        font-size: 10px;
+        font-weight: 600;
+        text-transform: uppercase;
+        margin-top: 10px;
+        padding: 0 5px;
+        border-radius: 3px;
+      }
+
+/*------ SETTINGS STYLE TEXT EFFECT JS ------*/   
+      .ml2{
+        font-weight: 900;
+        font-size: 3.5em;
+      }
+      .ml2 .letter{
+        display: inline-block;
+        line-height: 1em;
+      }
+
+    </style>
+</head>
+<!------------ SECTION 1 DATE AND TIME ------------>
+<body onload="initClock()">
+  <div class="datetime">
+    <div class="date">
+      <span id="dayname">Day</span>,
+      <span id="month">Month</span>
+      <span id="daynum">00</span>,
+      <span id="year">Year</span>
+    </div>
+    <div class="time">
+      <span id="hour">00</span>:
+      <span id="minutes">00</span>:
+      <span id="seconds">00</span>
+      <span id="period">AM</span>
+    </div>
+  </div>
+
+  <script type="text/javascript">
+    function updateClock(){
+      var now = new Date();
+      var dname = now.getDay(),
+          mo = now.getMonth(),
+          dnum = now.getDate(),
+          yr = now.getFullYear(),
+          hou = now.getHours(),
+          min = now.getMinutes(), 
+          sec = now.getSeconds(),
+          pe = "AM";
+
+          if(hou == 0){
+            hou = 12;
+          } 
+          if(hou > 12){
+            hou = hou - 12;
+            pe = "PM";
+          }
+
+          Number.prototype.pad = function(digits){
+            for(var n = this.toString(); n.length < digits; n = 0 + n);
+            return n;
+          }
+
+          var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+          var week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+          var ids = ["dayname", "month", "daynum", "year", "hour", "minutes", "seconds", "period"];
+          var values = [week[dname], months[mo], dnum.pad(2), yr, hou.pad(2), min.pad(2), sec.pad(2), pe];
+          for(var i = 0; i < ids.length; i++)
+          document.getElementById(ids[i]).firstChild.nodeValue = values[i];
+    }
+
+    function initClock(){
+      updateClock();
+      window.setInterval("updateClock()", 1);
+    }
+  </script>
+ <!------------ SECTION 1 MENU ------------>
+	<div class="menu">
+		<ul>
+
+		  <li><a href="Enquiry.html">Enquiry</a></li>
+		  <li><a href="News.html">News</a></li>
+		  <li><a href="Facilities.html">Facilities</a></li>
+		  <li><a href="Programmes.html">Programmes</a></li>
+		  <li><a href="About.html">About</a></li>
+		  <li><a href="Home.html">Home</a></li>
+		</ul>
+	</div>
+<!------------ SECTION 1 BACKGROUND ------------>
+<div class="bg"></div>
+<!------------ SECTION 1 TEXT BOX ------------>
+<div class="text-box">
+	<h1>PROGRAMMES</h1>
+</div>
+<!------------ SECTION 2 PROGRAMME ------------>
+<section class="course">
+  <div class="head">
+    <h1 class="ml2">COURSES WE OFFER</h1> 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<!------------ SECTION 2 TEXT EFFECT JS ------------>
+    <script type="text/javascript">
+    // Wrap every letter in a span
+    var textWrapper = document.querySelector('.ml2');
+    textWrapper.innerHTML = textWrapper.textContent.replace(/\S/g, "<span class='letter'>$&</span>");
+    anime.timeline({loop: true})
+      .add({
+        targets: '.ml2 .letter',
+        scale: [4,1],
+        opacity: [0,1],
+        translateZ: 0,
+        easing: "easeOutExpo",
+        duration: 3500,
+        delay: (el, i) => 100*i
+      })
+    </script>   
+  </div>
+
+  <div class="row">
+    <div class="course-col">
+    	<img src="images/24.jpg" height="150" width="300">
+    	<h3>Bachelor of Business (Accounting) (Hons)</h3>
+    	<a href="https://university.help.edu.my/course/bachelor-of-business-accounting-hons/" class="hero-btn">Learn More</a>
+    </div>
+    <div class="course-col">
+    	<img src="images/HELP-Communication.webp" height="150" width="300">
+    	<h3>Bachelor of Communication (Marketing Communication) (Hons)</h3>
+    	<a href="https://university.help.edu.my/course/bachelor-of-communication-marketing-communication-hons/" class="hero-btn">Learn More</a>
+    </div>
+    <div class="course-col">
+    	<img src="images/early_childhood_edu1.jpg" height="150" width="300">
+    	<h3>Bachelor of Early Childhood Education (Hons)</h3>
+    	<a href="https://university.help.edu.my/course/bachelor-of-early-childhood-education-hons/" class="hero-btn">Learn More</a>
+    </div>
+  </div>
+
+    <div class="row">
+    <div class="course-col">
+    	<img src="images/1503624114220_Business-Economics--orig.jpg" height="150" width="300">
+    	<h3>Bachelor of Economics (Hons)</h3>
+    	<a href="https://university.help.edu.my/course/bachelor-of-economics-hons/" class="hero-btn">Learn More</a>
+    </div>
+    <div class="course-col">
+    	<img src="images/FACULTY-OF-LAW-AND-GOVERNMENT.webp" height="150" width="300">
+    	<h3>Bachelor of Laws (Hons)</h3>
+    	<a href="https://university.help.edu.my/course/llb/#:~:text=HELP%20University%20offers%20its%20own,Malaysian%20Legal%20Profession%20Qualifying%20Board." class="hero-btn">Learn More</a>
+    </div>
+    <div class="course-col">
+    	<img src="images/Psychologist-san-diego.jpg" height="150" width="300">
+    	<h3>Bachelor of Psychology (Hons)</h3>
+    	<a href="https://university.help.edu.my/course/psychologycourse/" class="hero-btn">Learn More</a>
+    </div>
+  </div>
+</section>
+<br>
+<br>
+</body>
+</html>
